@@ -5,3 +5,17 @@
     justify-content: center;
     align-items: center;
 }
+.divider{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.divider .line-style{
+    width: 40%;
+    height: 2px;
+    background-color: lightgray;
+}
+.divider p{
+    margin-top: 8px;
+}

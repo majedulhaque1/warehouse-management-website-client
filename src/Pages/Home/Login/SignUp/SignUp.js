@@ -1,19 +1,34 @@
 import React from 'react';
 import './SignUp.css';
+import { Link, useNavigate } from 'react-router-dom';
+import {useCreateUserWithEmailAndPassword} from 'react-firebase-hooks/auth';
+import auth from '../../../../firebase.init';
 
 const SignUp = () => {
+    const [createUserWithEmailAndPassword] = useCreateUserWithEmailAndPassword(auth);
+    const navigate = useNavigate();
+    const handleSignUp = (e) =>{
+        e.preventDefault();
+        const name = e.target.name.value;
+        const email = e.target.email.value;
+        const password = e.target.password.value;
+        const confirmPassword = e.target.confirmpassword.value;
+        createUserWithEmailAndPassword(email, password);
+        navigate('/');
+    }
     return (
         <div className='form-container'>
-            <form className='form' action="">
-                <input type="text" name='name' placeholder='Name' required/>
+            <form onSubmit={handleSignUp} className='form' action="">
+                <input className='mb-3' type="text" name='name' placeholder='Name' required />
                 <br />
-                <input type="email" name='email' placeholder='Your Email' required />
+                <input className='mb-3' type="email" name='email' placeholder='Your Email' required />
                 <br />
-                <input type="password" name='password' placeholder='Password' required />
+                <input className='mb-3' type="password" name='password' placeholder='Password' required />
                 <br />
-                <input type="password" name='confim-password' placeholder='Confirm Password' required />
+                <input className='mb-3' type="password" name='confirmpassword' placeholder='Confirm Password' required />
                 <br />
-                <input type="submit" value="Sign Up" />
+                <input className='btn btn-primary' type="submit" value="Sign Up" />
+                <p>Already have an account <Link to={'/login'}>Please Login</Link></p>
                 <div className='divider'>
                     <div className='line-style'></div>
                     <p>or</p>
