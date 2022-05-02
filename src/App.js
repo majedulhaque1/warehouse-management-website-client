@@ -9,12 +9,16 @@ import { Routes, Route } from 'react-router-dom';
 import RecentItems from './Pages/Home/RecentItems/RecentItems';
 import Inventory from './Pages/Home/Inventory/Inventory';
 import ManageInventories from './Pages/ManageInventories/ManageInventories';
+import AddItem from './Pages/AddItem/AddItem';
+import ManageItems from './Pages/ManageItems/ManageItems';
 
 function App() {
   return (
     <div className="App">
       <Header></Header>
       <Banner></Banner>
+      {/* <AddItem></AddItem> */}
+      <ManageItems></ManageItems>
       <Routes>
         <Route path='/signup' element={<SignUp></SignUp>}></Route>
         <Route path='/login' element={<Login></Login>}></Route>

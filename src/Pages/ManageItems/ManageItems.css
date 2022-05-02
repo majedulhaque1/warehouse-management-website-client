@@ -1,0 +1,21 @@
+.manage-items-container{
+    border-radius: 15px;
+    margin: 20px 0;
+}
+.manage-items-container img{
+    width: 350px;
+    height: 200px;
+    background-color: #ddd;
+    padding: 10px;
+    border-radius: 15px;
+    margin-right: 20px;
+}
+.custom-delete-btn{
+    width: 60px;
+    height: 60px;
+    border: 0;
+    padding: 8px;
+    border-radius: 50%;
+    background-color: red;
+    color: #fff;
+}
