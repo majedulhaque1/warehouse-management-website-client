@@ -1,6 +1,7 @@
 .manage-items-container{
     border-radius: 15px;
     margin: 20px 0;
+    position: relative;
 }
 .manage-items-container img{
     width: 350px;
@@ -11,11 +12,18 @@
     margin-right: 20px;
 }
 .custom-delete-btn{
-    width: 60px;
-    height: 60px;
+    position: absolute;
+    right: 2%;
+    top: 10%;
     border: 0;
-    padding: 8px;
-    border-radius: 50%;
+    padding: 10px 20px;
+    border-radius: 6px;
     background-color: red;
     color: #fff;
 }
+.manage-items-container .product-info{}
+.manage-items-container .product-info p{
+    font-size: 16px;
+    color: #000;
+}
+.manage-items-container .product-info{}

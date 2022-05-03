@@ -13,8 +13,8 @@ const Login = () => {
         navigate('/');
     }
     return (
-        <div className='form-container'>
-            <form onSubmit={handleSignIn} className='form' action="">
+        <div className='resister-form-container'>
+            <form onSubmit={handleSignIn} className='resister-form' action="">
                 <input className='mb-3' type="email" name='email' placeholder='Your Email' required />
                 <br />
                 <input className='mb-3' type="password" name='password' placeholder='Password' required />

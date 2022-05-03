@@ -11,6 +11,9 @@ import Inventory from './Pages/Home/Inventory/Inventory';
 import ManageInventories from './Pages/ManageInventories/ManageInventories';
 import AddItem from './Pages/AddItem/AddItem';
 import ManageItems from './Pages/ManageItems/ManageItems';
+import MyItems from './Pages/MyItems/MyItems';
+import Footer from './Pages/Footer/Footer';
+import ClientReviews from './Pages/ClientReviews/ClientReviews';
 
 function App() {
   return (
@@ -18,14 +21,18 @@ function App() {
       <Header></Header>
       <Banner></Banner>
       {/* <AddItem></AddItem> */}
-      <ManageItems></ManageItems>
+      {/* <ManageItems></ManageItems> */}
+      {/* <MyItems></MyItems> */}
+      <ManageInventories></ManageInventories>
       <Routes>
         <Route path='/signup' element={<SignUp></SignUp>}></Route>
         <Route path='/login' element={<Login></Login>}></Route>
         <Route path='/inventory/:itemId' element={<Inventory></Inventory>}></Route>
         <Route path='/manage-inventory' element={<ManageInventories></ManageInventories>}></Route>
       </Routes>
-      <RecentItems></RecentItems>
+      {/* <RecentItems></RecentItems> */}
+      <ClientReviews></ClientReviews>
+      <Footer></Footer>
     </div>
   );
 }

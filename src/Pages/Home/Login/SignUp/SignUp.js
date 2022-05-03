@@ -17,8 +17,8 @@ const SignUp = () => {
         navigate('/');
     }
     return (
-        <div className='form-container'>
-            <form onSubmit={handleSignUp} className='form' action="">
+        <div className='resister-form-container'>
+            <form onSubmit={handleSignUp} className='resister-form' action="">
                 <input className='mb-3' type="text" name='name' placeholder='Name' required />
                 <br />
                 <input className='mb-3' type="email" name='email' placeholder='Your Email' required />

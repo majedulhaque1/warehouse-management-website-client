@@ -13,7 +13,7 @@ const RecentItems = () => {
     // }, [])
     const [products, setProducts] = useProducts([]);
     return (
-        <div>
+        <div id='recentitems#items'>
             <Container style={{width: "100%", margin: "0 auto"}}>
                 <div className="section-title">
                     <h2 className="text-primary fs-1 my-5">Recent Cars</h2>
