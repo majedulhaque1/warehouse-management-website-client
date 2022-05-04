@@ -14,6 +14,7 @@ import ManageItems from './Pages/ManageItems/ManageItems';
 import MyItems from './Pages/MyItems/MyItems';
 import Footer from './Pages/Footer/Footer';
 import ClientReviews from './Pages/ClientReviews/ClientReviews';
+import WhyChooseUs from './Pages/WhyChooseUs/WhyChooseUs';
 
 function App() {
   return (
@@ -23,7 +24,7 @@ function App() {
       {/* <AddItem></AddItem> */}
       {/* <ManageItems></ManageItems> */}
       {/* <MyItems></MyItems> */}
-      <ManageInventories></ManageInventories>
+      {/* <ManageInventories></ManageInventories> */}
       <Routes>
         <Route path='/signup' element={<SignUp></SignUp>}></Route>
         <Route path='/login' element={<Login></Login>}></Route>
@@ -31,6 +32,7 @@ function App() {
         <Route path='/manage-inventory' element={<ManageInventories></ManageInventories>}></Route>
       </Routes>
       {/* <RecentItems></RecentItems> */}
+      <WhyChooseUs></WhyChooseUs>
       <ClientReviews></ClientReviews>
       <Footer></Footer>
     </div>

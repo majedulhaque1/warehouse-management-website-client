@@ -9,28 +9,40 @@ import 'swiper/css/navigation';
 const ClientReviews = () => {
     return (
         <>
+        <div>
+            <h2 className='text-center fs-3 mt-5 mb-3'>CLIENT REVIEWS</h2>
+            <div className='underline'></div>
+        </div>
             <Swiper
             slidesPerView={1}
-            style={{height:'70vh', padding:'100px 0'}}
+            className='client-review-container'
             modules={[Navigation]}
             navigation={true}
             >
-                <SwiperSlide>
-                <Card>
-                            <Card.Img className='img-style shadow-lg' variant='top' src={imageClient}>
+                <SwiperSlide className='client-review'>
+                <Card className='border-0 card-style'>
+                            <Card.Img className='img-style' variant='top' src={imageClient}>
                             </Card.Img>
                             <Card.Body>
+                                <Card.Text className='text-center fs-2'>
+                                    kevin
+                                </Card.Text>
                                 <Card.Text className='text-center'>
+                                    your services is really awesome.
+                                    your services is really awesome.
                                     your services is really awesome.
                                 </Card.Text>
                             </Card.Body>
                         </Card>
                 </SwiperSlide>
-                <SwiperSlide>
-                 <Card>
-                            <Card.Img className='img-style shadow-lg' variant='top' src={imageClient}>
+                <SwiperSlide className='client-review'>
+                 <Card className='border-0 card-style'>
+                            <Card.Img className='img-style' variant='top' src={imageClient}>
                             </Card.Img>
                            <Card.Body>
+                                <Card.Text className='text-center fs-2'>
+                                    jhon
+                                </Card.Text>
                                 <Card.Text className='text-center'>
                                     your services is really awesome.
                                     your services is really awesome.
@@ -39,11 +51,14 @@ const ClientReviews = () => {
                             </Card.Body>
                         </Card>
                 </SwiperSlide>
-                <SwiperSlide>
-                <Card>
-                            <Card.Img className='img-style shadow-lg' variant='top' src={imageClient}>
+                <SwiperSlide className='client-review'>
+                <Card className='border-0 card-style'>
+                            <Card.Img className='img-style' variant='top' src={imageClient}>
                             </Card.Img>
                             <Card.Body>
+                                <Card.Text className='text-center fs-2'>
+                                    Merey
+                                </Card.Text>
                                 <Card.Text className='text-center'>
                                     your services is really awesome.
                                     your services is really awesome.

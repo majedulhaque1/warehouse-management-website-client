@@ -10,9 +10,12 @@ const Header = () => {
     return (
         <div>
             <>
-                <Navbar bg="dark" variant="dark">
-                    <Container>
+                <Navbar bg="dark" variant="dark" expand="lg">
+                    <Container className='text-center'>
                         <Navbar.Brand href="#home">carDelar</Navbar.Brand>
+                        <Navbar.Toggle aria="basic-navbar-nav"/>
+                        <Navbar.Collapse id="basic-navbar-nav">
+
                         <Nav className="ms-auto">
                             <Nav.Link href="#home"><Link className='text-white text-decoration-none' to={'/'}>Home</Link></Nav.Link>
                             <Nav.Link href="#items"><Link className='text-white text-decoration-none' to={'/recentitems'}>Items</Link></Nav.Link>
@@ -21,6 +24,7 @@ const Header = () => {
                             <Nav.Link href="#pricing"><button onClick={() => signOut(auth)} className='btn btn-light'>Sign Out</button></Nav.Link>
                             : <Nav.Link href="#pricing"><Link className='text-white text-decoration-none' to={'/signup'}>Sign Up</Link></Nav.Link>}
                         </Nav>
+                            </Navbar.Collapse>
                     </Container>
                 </Navbar>
             </>

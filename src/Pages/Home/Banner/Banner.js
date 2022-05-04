@@ -4,11 +4,11 @@ import imageSlide from '../../../images/gear.png';
 const Banner = () => {
     return (
         <div>
-            <Carousel style={{height: '80vh'}}>
-                <Carousel.Item>
+            <Carousel style={{ backgroundSize: 'cover',height: '80vh'}}>
+                <Carousel.Item className='banner-img-style'>
                     <img
                         style={{width: '100%',height: '80vh'}}
-                        className="d-block"
+                        className=""
                         src={imageSlide}
                         alt="First slide"
                     />
@@ -20,7 +20,7 @@ const Banner = () => {
                 <Carousel.Item>
                     <img
                         style={{width: '100%',height: '80vh'}}
-                        className="d-block w-100"
+                        className=""
                         src={imageSlide}
                         alt="Second slide"
                     />
@@ -33,7 +33,7 @@ const Banner = () => {
                 <Carousel.Item>
                     <img
                         style={{width: '100%',height: '80vh'}}
-                        className="d-block w-100"
+                        className=""
                         src={imageSlide}
                         alt="Third slide"
                     />

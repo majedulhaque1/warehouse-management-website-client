@@ -4,3 +4,11 @@
     flex-direction: column;
     justify-content: end;
 }
+.newsletter{
+
+}
+.newsletter input{
+    width: 100%;
+    padding: 8px 15px;
+    border-radius: 6px;
+}
