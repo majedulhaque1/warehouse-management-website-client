@@ -7,11 +7,7 @@ const Inventory = () => {
     const [product, setProduct] = useState({});
     const [products, setProducts] = useProducts();
     const {_id, name, img, description, price, quantity} = product;
-    // console.log(quantity);
-    let [updateQuantity, setUpdateQuantity] = useState(parseInt(quantity));
-    // if(!updateQuantity){
-    //     setUpdateQuantity(updateQuantity = quantity);
-    // }
+    let [updateQuantity, setUpdateQuantity] = useState(0);
     const {itemId} = useParams();
 
     useEffect(() =>{
@@ -24,19 +20,15 @@ const Inventory = () => {
 
     const handleUpdateQuantity = (e) =>{
         e.preventDefault();
-        if(updateQuantity === null || updateQuantity === 0) {
-            return;
-        }
         let itemQuantity = product.quantity;
+        if(updateQuantity === null || updateQuantity === isNaN) {
+            setUpdateQuantity(itemQuantity);
+        }
         if(itemQuantity === null || itemQuantity === ''){
             itemQuantity = 0;
         }
         const quantityValue = e.target.quantityValue.value;
-        const newQuantityValue = parseInt(quantityValue);
-        console.log(newQuantityValue);
-        const newUpdateQuantity = parseInt(itemQuantity);
-        console.log(newUpdateQuantity);
-        const quantity = newUpdateQuantity + newQuantityValue;
+        const quantity = parseInt(quantityValue) + parseInt(updateQuantity);
         setUpdateQuantity(quantity);
         console.log(quantity);
         const url = `http://localhost:5000/additem/${itemId}`;
@@ -49,7 +41,7 @@ const Inventory = () => {
         })
         .then(res => res.json())
         .then(data => {
-            setUpdateQuantity(quantity);
+            // setUpdateQuantity(quantity);
             setProducts(data);
             e.target.reset();
         })
@@ -57,10 +49,12 @@ const Inventory = () => {
 
 
     const handleDelevered = () =>{
-        if(updateQuantity === 0 || updateQuantity === isNaN){
-            return;
+        let itemQuantity = product.quantity;
+        if(updateQuantity <= 0 || updateQuantity === isNaN){
+            setUpdateQuantity(0);
         }
         else{
+            // console.log(updateQuantity)
         const quantity = parseInt(updateQuantity) - 1;
         setUpdateQuantity(quantity);
         console.log(quantity);
@@ -74,7 +68,7 @@ const Inventory = () => {
         })
         .then(res => res.json())
         .then(data => {
-            setUpdateQuantity(quantity);
+            // setUpdateQuantity(quantity);
             setProducts(data);
         })
     }
@@ -93,6 +87,7 @@ const Inventory = () => {
                     <p>Description: {description}</p>
                     <h4>Price: <small>{price}</small></h4>
                     <h4>Quantity: <small>{!updateQuantity ? quantity : updateQuantity}</small></h4>
+                    <h4>Quantity: <small>{updateQuantity}</small></h4>
                     <h4>Suplier Name: <small>Suplier Name</small></h4>
                     <button onClick={handleDelevered} className='btn btn-warning text-white d-block ms-auto me-4'>Delevered</button>
                 </div>
