@@ -10,8 +10,8 @@ const ClientReviews = () => {
     return (
         <>
         <div>
-            <h2 className='text-center fs-3 mt-5 mb-3'>CLIENT REVIEWS</h2>
-            <div className='underline'></div>
+            <h2 className='text-center text-warning fs-3 mt-5 mb-3'>CLIENT REVIEWS</h2>
+            {/* <div className='underline'></div> */}
         </div>
             <Swiper
             slidesPerView={1}

@@ -16,11 +16,11 @@ const RecentItems = () => {
         <div id='recentitems#items'>
             <Container style={{width: "100%", margin: "0 auto"}}>
                 <div className="section-title">
-                    <h2 className="text-primary fs-1 my-5">Recent Cars</h2>
+                    <h2 className="text-warning text-center my-5">Recent Added</h2>
                 </div>
                 <Row style={{width: "100%", margin: "0 auto"}} className='gx-5'>
                     {
-                        products.map(recentcar => <RecentItem key={recentcar._id} recentcar={recentcar}></RecentItem>)
+                        products.slice(0,6).map(recentcar => <RecentItem key={recentcar._id} recentcar={recentcar}></RecentItem>)
                     }
                 </Row>
             </Container>

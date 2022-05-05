@@ -12,28 +12,33 @@ import ManageInventories from './Pages/ManageInventories/ManageInventories';
 import AddItem from './Pages/AddItem/AddItem';
 import ManageItems from './Pages/ManageItems/ManageItems';
 import MyItems from './Pages/MyItems/MyItems';
+import RequireAuth from './Pages/RequireAuth/RequireAuth';
 import Footer from './Pages/Footer/Footer';
-import ClientReviews from './Pages/ClientReviews/ClientReviews';
-import WhyChooseUs from './Pages/WhyChooseUs/WhyChooseUs';
+import Home from './Pages/Home/Home/Home';
+import Loading from './Pages/Loading/Loading';
 
 function App() {
   return (
     <div className="App">
       <Header></Header>
-      <Banner></Banner>
       {/* <AddItem></AddItem> */}
       {/* <ManageItems></ManageItems> */}
       {/* <MyItems></MyItems> */}
       {/* <ManageInventories></ManageInventories> */}
       <Routes>
+        <Route path='/' element={<Home></Home>}></Route>
         <Route path='/signup' element={<SignUp></SignUp>}></Route>
         <Route path='/login' element={<Login></Login>}></Route>
-        <Route path='/inventory/:itemId' element={<Inventory></Inventory>}></Route>
+
+        <Route path='/inventory/:itemId' element={
+          <RequireAuth>
+
+            <Inventory></Inventory>
+          </RequireAuth>
+        }></Route>
         <Route path='/manage-inventory' element={<ManageInventories></ManageInventories>}></Route>
       </Routes>
-      {/* <RecentItems></RecentItems> */}
-      <WhyChooseUs></WhyChooseUs>
-      <ClientReviews></ClientReviews>
+      {/* <Loading></Loading> */}
       <Footer></Footer>
     </div>
   );

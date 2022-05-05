@@ -10,7 +10,7 @@ const RecentItem = ({ recentcar }) => {
     return (
         <>
             <Col xs={12} md={6} lg={4}>
-            <Card className='mb-5 mx-4' style={{ width: '22rem' }}>
+            <Card className='mb-5 mx-4 shadow-lg' style={{ width: '22rem' }}>
                 <Card.Img variant="top" src={img} />
                 <Card.Body>
                     <Card.Title>{name}</Card.Title>
@@ -23,8 +23,8 @@ const RecentItem = ({ recentcar }) => {
                     <Card.Text>
                         Quantity: {quantity}
                     </Card.Text>
-                    <Button className="me-5" variant="primary">Update</Button>
-                    <Button onClick={handleInventory} className='ms-5' variant="primary">Inventory</Button>
+                    <Button className="text-white me-5" variant="warning">Update</Button>
+                    <Button onClick={handleInventory} className='ms-5 text-white' variant="warning">Inventory</Button>
                 </Card.Body>
             </Card>
             </Col>

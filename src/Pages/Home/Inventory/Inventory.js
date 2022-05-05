@@ -7,29 +7,36 @@ const Inventory = () => {
     const [product, setProduct] = useState({});
     const [products, setProducts] = useProducts();
     const {_id, name, img, description, price, quantity} = product;
-    let [updateQuantity, setUpdateQuantity] = useState(product.quantity);
-    console.log(updateQuantity);
+    // console.log(quantity);
+    let [updateQuantity, setUpdateQuantity] = useState(parseInt(quantity));
+    // if(!updateQuantity){
+    //     setUpdateQuantity(updateQuantity = quantity);
+    // }
     const {itemId} = useParams();
 
     useEffect(() =>{
         const url = `http://localhost:5000/additem/${itemId}`;
-        console.log(url);
+        // console.log(url);
         fetch(url)
         .then(res => res.json())
         .then(data => setProduct(data))
-    },[itemId,setProducts])
+    },[itemId])
 
     const handleUpdateQuantity = (e) =>{
         e.preventDefault();
-        const quantityValue = e.target.quantityValue.value;
-        let itemQuantity = product.quantity;
-        // if(itemQuantity > 0){
-        //     return;
-        // }
-        if(itemQuantity === null || itemQuantity === "" || itemQuantity === -1){
-            itemQuantity = 1;
+        if(updateQuantity === null || updateQuantity === 0) {
+            return;
         }
-        const quantity = parseInt(itemQuantity) + parseInt(quantityValue);
+        let itemQuantity = product.quantity;
+        if(itemQuantity === null || itemQuantity === ''){
+            itemQuantity = 0;
+        }
+        const quantityValue = e.target.quantityValue.value;
+        const newQuantityValue = parseInt(quantityValue);
+        console.log(newQuantityValue);
+        const newUpdateQuantity = parseInt(itemQuantity);
+        console.log(newUpdateQuantity);
+        const quantity = newUpdateQuantity + newQuantityValue;
         setUpdateQuantity(quantity);
         console.log(quantity);
         const url = `http://localhost:5000/additem/${itemId}`;
@@ -42,6 +49,7 @@ const Inventory = () => {
         })
         .then(res => res.json())
         .then(data => {
+            setUpdateQuantity(quantity);
             setProducts(data);
             e.target.reset();
         })
@@ -49,10 +57,10 @@ const Inventory = () => {
 
 
     const handleDelevered = () =>{
-        // let itemQuantity = product.quantity;
-        // if(itemQuantity === null || itemQuantity === "" || itemQuantity < 0){
-        //     itemQuantity = 1;
-        // }
+        if(updateQuantity === 0 || updateQuantity === isNaN){
+            return;
+        }
+        else{
         const quantity = parseInt(updateQuantity) - 1;
         setUpdateQuantity(quantity);
         console.log(quantity);
@@ -66,28 +74,30 @@ const Inventory = () => {
         })
         .then(res => res.json())
         .then(data => {
+            setUpdateQuantity(quantity);
             setProducts(data);
         })
     }
+    }
     return (
         <div className='inventory-container'>
-            <h2 className='text-center text-primary my-5'>Welcome to inventory.</h2>
+            <h2 className='text-center text-warning my-5'>Welcome to inventory.</h2>
             <form className='form' onSubmit={handleUpdateQuantity} action="">
-                <input type="number" name='quantityValue' placeholder='Product Quantity' />
-                <input className='button-style' type="submit" value="Update stock" />
+                <input type="number" name='quantityValue' placeholder='Product Quantity' required />
+                <input className='btn btn-warning text-white' type="submit" value="Update stock" />
             </form>
             <div className='product d-flex mx-auto shadow-lg'>
                 <img src={img} alt="" />
                 <div className='product-info'>
-                    <h2>{name}</h2>
+                    <h2 className='text-warning'>{name}</h2>
                     <p>Description: {description}</p>
                     <h4>Price: <small>{price}</small></h4>
-                    <h4>Quantity: <small>{updateQuantity === undefined ? quantity : updateQuantity}</small></h4>
+                    <h4>Quantity: <small>{!updateQuantity ? quantity : updateQuantity}</small></h4>
                     <h4>Suplier Name: <small>Suplier Name</small></h4>
-                    <button onClick={handleDelevered} className='delevered-button'>Delevered</button>
+                    <button onClick={handleDelevered} className='btn btn-warning text-white d-block ms-auto me-4'>Delevered</button>
                 </div>
             </div>
-            <Link className='manageinventory-btn' to={'/manage-inventory'}>Manage Inventorey</Link>
+            <Link className='btn btn-warning text-white d-block w-25 mt-5 mx-auto' to={'/manage-inventory'}>Manage Inventorey</Link>
         </div>
     );
 };

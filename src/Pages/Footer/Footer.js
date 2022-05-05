@@ -8,7 +8,7 @@ import { faLocationArrow, faLocationPin, faPhone, } from '@fortawesome/free-soli
 const Footer = () => {
     return (
         <div className="bg-dark footer-container">
-            <div className='d-flex justify-content-between mx-auto' style={{ width: '90%' }}>
+            <div className='d-flex justify-content-between flex-wrap d-block mx-auto' style={{ width: '90%' }}>
                 <div className='contact-us'>
                     <h2 className='text-warning my-4'>Contact Us</h2>
                     <div>

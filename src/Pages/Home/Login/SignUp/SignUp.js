@@ -3,9 +3,10 @@ import './SignUp.css';
 import { Link, useNavigate } from 'react-router-dom';
 import {useCreateUserWithEmailAndPassword} from 'react-firebase-hooks/auth';
 import auth from '../../../../firebase.init';
+import { sendEmailVerification } from 'firebase/auth';
 
 const SignUp = () => {
-    const [createUserWithEmailAndPassword] = useCreateUserWithEmailAndPassword(auth);
+    const [createUserWithEmailAndPassword] = useCreateUserWithEmailAndPassword(auth, sendEmailVerification);
     const navigate = useNavigate();
     const handleSignUp = (e) =>{
         e.preventDefault();
@@ -27,7 +28,7 @@ const SignUp = () => {
                 <br />
                 <input className='mb-3' type="password" name='confirmpassword' placeholder='Confirm Password' required />
                 <br />
-                <input className='btn btn-primary' type="submit" value="Sign Up" />
+                <input className='btn btn-warning text-white' type="submit" value="Sign Up" />
                 <p>Already have an account <Link to={'/login'}>Please Login</Link></p>
                 <div className='divider'>
                     <div className='line-style'></div>
@@ -35,7 +36,7 @@ const SignUp = () => {
                     <div className='line-style'></div>
                 </div>
                 <div>
-                    <button className='btn btn-primary'>Google Sign In</button>
+                    <button className='btn btn-warning w-100 text-white'>Google Sign In</button>
                 </div>
             </form>
         </div>
