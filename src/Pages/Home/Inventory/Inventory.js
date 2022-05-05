@@ -28,7 +28,7 @@ const Inventory = () => {
             itemQuantity = 0;
         }
         const quantityValue = e.target.quantityValue.value;
-        const quantity = parseInt(quantityValue) + parseInt(updateQuantity);
+        const quantity = parseInt(quantityValue) + parseInt(itemQuantity);
         setUpdateQuantity(quantity);
         console.log(quantity);
         const url = `http://localhost:5000/additem/${itemId}`;
