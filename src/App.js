@@ -33,6 +33,7 @@ function App() {
         <Route path='/myitems' element={<MyItems></MyItems>}></Route>
         <Route path='/useradditem' element={<AddItem></AddItem>}></Route>
         <Route path='/manageitems' element={<ManageItems></ManageItems>}></Route>
+        <Route path='/manageinventories' element={<ManageInventories></ManageInventories>}></Route>
         <Route path='/inventory/:itemId' element={
           <RequireAuth>
             <Inventory></Inventory>

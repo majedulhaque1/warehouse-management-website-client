@@ -1,7 +1,7 @@
 import React from 'react';
 import './ClientReviews.css';
 import { Card, Col, Container, Row } from 'react-bootstrap';
-import imageClient from '../../images/gear.png';
+import imageClient from '../../images/carimage4.jpg';
 import {Swiper, SwiperSlide} from 'swiper/react';
 import {Navigation} from 'swiper';
 import 'swiper/css';
