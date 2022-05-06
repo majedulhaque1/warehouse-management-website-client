@@ -1,15 +1,17 @@
 import React from 'react';
 import { Carousel } from 'react-bootstrap';
-import imageSlide from '../../../images/gear.png';
+import imageSlide1 from '../../../images/carimage1.jpg';
+import imageSlide2 from '../../../images/carimage2.jpg';
+import imageSlide3 from '../../../images/carimage3.jpg';
 const Banner = () => {
     return (
         <div>
-            <Carousel style={{ backgroundSize: 'cover',height: '80vh'}}>
+            <Carousel style={{ backgroundSize: 'cover',height: '90vh'}}>
                 <Carousel.Item className='banner-img-style'>
                     <img
-                        style={{width: '100%',height: '80vh'}}
+                        style={{width: '100%',height: '100vh'}}
                         className=""
-                        src={imageSlide}
+                        src={imageSlide2}
                         alt="First slide"
                     />
                     <Carousel.Caption>
@@ -19,9 +21,9 @@ const Banner = () => {
                 </Carousel.Item>
                 <Carousel.Item>
                     <img
-                        style={{width: '100%',height: '80vh'}}
+                        style={{width: '100%',height: '90vh'}}
                         className=""
-                        src={imageSlide}
+                        src={imageSlide1}
                         alt="Second slide"
                     />
 
@@ -32,9 +34,9 @@ const Banner = () => {
                 </Carousel.Item>
                 <Carousel.Item>
                     <img
-                        style={{width: '100%',height: '80vh'}}
+                        style={{width: '100%',height: '90vh'}}
                         className=""
-                        src={imageSlide}
+                        src={imageSlide3}
                         alt="Third slide"
                     />
 

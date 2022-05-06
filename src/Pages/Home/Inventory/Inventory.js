@@ -1,4 +1,4 @@
-import React, {useState, useEffect, useRef} from 'react';
+import React, {useState, useEffect} from 'react';
 import './inventory.css';
 import {useParams} from 'react-router-dom';
 import {Link} from 'react-router-dom';
@@ -21,9 +21,9 @@ const Inventory = () => {
     const handleUpdateQuantity = (e) =>{
         e.preventDefault();
         let itemQuantity = product.quantity;
-        if(updateQuantity === null || updateQuantity === isNaN) {
-            setUpdateQuantity(itemQuantity);
-        }
+        // if(updateQuantity === null || updateQuantity === isNaN) {
+        //     setUpdateQuantity(itemQuantity);
+        // }
         if(itemQuantity === null || itemQuantity === ''){
             itemQuantity = 0;
         }

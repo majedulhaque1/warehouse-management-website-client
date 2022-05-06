@@ -31,7 +31,7 @@
     background-color: rgb(252, 199, 7);
     display: block;
     margin: 0 auto;
-    transform: translateY(-50px);
+    /* transform: translateY(-50px); */
     position: relative;
 }
 .card-style{
@@ -43,7 +43,7 @@
     font-size: 130px;
     color: rgb(252, 199, 7);
     position: absolute;
-    top: -58%;
-    left: 65%;
+    top: -45%;
+    left: 62%;
     right: 10%;
 }

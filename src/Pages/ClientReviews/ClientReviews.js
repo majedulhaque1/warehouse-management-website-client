@@ -10,12 +10,12 @@ const ClientReviews = () => {
     return (
         <>
         <div>
-            <h2 className='text-center text-warning fs-3 mt-5 mb-3'>CLIENT REVIEWS</h2>
+            <h2 className='text-center text-warning fs-3 py-5'>CLIENT REVIEWS</h2>
             {/* <div className='underline'></div> */}
         </div>
             <Swiper
             slidesPerView={1}
-            className='client-review-container'
+            className='client-review-container my-5'
             modules={[Navigation]}
             navigation={true}
             >
