@@ -8,11 +8,11 @@ const Blogs = () => {
                 <h2>Defferance between JavaScript And Node JS?</h2>
                 <h3>JavaScript</h3>
                 <p>
-                    this is question answer.this is question answer.this is question answer.this is question answer.this is question answer.this is question answer.this is question answer.
+                    JavaScript is a programming language.And JavaScript is high level and interprete programming language.JavaScript can run only browsers.JavaScript used for client side.And JavaScript used for front end development.JavaScipt is written in c++.
                 </p>
                 <h3>Node Js</h3>
                 <p>
-                    this is question answer.this is question answer.this is question answer.this is question answer.this is question answer.this is question answer.this is question answer.
+                    Node JS is a javascript runtime environment.We can run javascript outside of the browser with the help of Node JS Runtime.We use Node Js for Back End Development.Node js is Written in c,c++ and JavaScript.
                 </p>
             </div>
             <div>
