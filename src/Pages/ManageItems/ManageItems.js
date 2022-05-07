@@ -1,13 +1,25 @@
-import React from 'react';
+import React,{useEffect, useState} from 'react';
 import { Table } from 'react-bootstrap';
 import useProducts from '../../hooks/useProducts';
 import './ManageItems.css';
+import {useAuthState} from 'react-firebase-hooks/auth';
+import auth from '../../firebase.init';
 
 const ManageItems = () => {
-    const [products, setProducts] = useProducts();
+    const [user] = useAuthState(auth);
+    // const [products, setProducts] = useProducts();
+    const [products, setProducts] = useState([])
+    useEffect(() =>{
+        fetch('http://localhost:5000/additem')
+        .then(res => res.json())
+        .then(data =>{
+            const userAddProduct = data.filter(p => p.email === user?.email);
+            setProducts(userAddProduct);
+        })
+    },[user?.email])
     return (
         <div className='' style={{width : '90%', margin: "0 auto"}}>
-            <h2 className='text-center text-primary my-5'>Manage Items</h2>
+            <h2 className='text-center text-warning my-5'>Manage Items</h2>
             <Table striped bordered hover>
                 <thead>
                     <tr className='my-5'>
@@ -37,19 +49,6 @@ const ManageItems = () => {
 
                 </tbody>
             </Table>
-            {/* <div className='d-flex w-75 mx-auto shadow-lg p-3 manage-items-container'>
-                <img src="https://i.ibb.co/dGDkr4v/1.jpg" alt="" />
-                <div className='d-flex justify-content-between align-items-center w-100'>
-                    <div className='product-info'>
-                        <h2 className='fs-3'>Name here</h2>
-                        <p className='fs-6'>Description here</p>
-                        <p>Price: <small>Price here</small></p>
-                        <p>Quantity: <small>Quantity here</small></p>
-                        <p>Suplier Name: <small>Suplier Name here</small></p>
-                    </div>
-                    <button className='custom-delete-btn'>Delete</button>
-                </div>
-            </div> */}
         </div>
     );
 };

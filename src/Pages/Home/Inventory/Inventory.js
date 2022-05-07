@@ -7,9 +7,18 @@ const Inventory = () => {
     const [product, setProduct] = useState({});
     const [products, setProducts] = useProducts();
     const {_id, name, img, description, price, quantity} = product;
-    let [updateQuantity, setUpdateQuantity] = useState(0);
     const {itemId} = useParams();
-
+    let [updateQuantity, setUpdateQuantity] = useState();
+    useEffect(() =>{
+        if(!updateQuantity){
+            setUpdateQuantity(quantity);
+        }
+        else if(updateQuantity < 0){
+            alert('Nagative value no accept');
+            setUpdateQuantity(0);
+        }
+    },[quantity, updateQuantity])
+    // console.log(quantity)
     useEffect(() =>{
         const url = `http://localhost:5000/additem/${itemId}`;
         // console.log(url);
@@ -21,14 +30,14 @@ const Inventory = () => {
     const handleUpdateQuantity = (e) =>{
         e.preventDefault();
         let itemQuantity = product.quantity;
-        // if(updateQuantity === null || updateQuantity === isNaN) {
-        //     setUpdateQuantity(itemQuantity);
-        // }
-        if(itemQuantity === null || itemQuantity === ''){
-            itemQuantity = 0;
+        if(updateQuantity === null || updateQuantity === isNaN) {
+            setUpdateQuantity(itemQuantity);
         }
+        // if(itemQuantity === null || itemQuantity === ''){
+        //     itemQuantity = 0;
+        // }
         const quantityValue = e.target.quantityValue.value;
-        const quantity = parseInt(quantityValue) + parseInt(itemQuantity);
+        const quantity = parseInt(quantityValue) + parseInt(updateQuantity);
         setUpdateQuantity(quantity);
         console.log(quantity);
         const url = `http://localhost:5000/additem/${itemId}`;
@@ -50,10 +59,12 @@ const Inventory = () => {
 
     const handleDelevered = () =>{
         let itemQuantity = product.quantity;
-        if(updateQuantity <= 0 || updateQuantity === isNaN){
+        if(updateQuantity < 0 || itemQuantity < 0){
+            alert('nagivative value not accept');
+            itemQuantity = 0;
             setUpdateQuantity(0);
         }
-        else{
+        // else{
             // console.log(updateQuantity)
         const quantity = parseInt(updateQuantity) - 1;
         setUpdateQuantity(quantity);
@@ -71,7 +82,7 @@ const Inventory = () => {
             // setUpdateQuantity(quantity);
             setProducts(data);
         })
-    }
+    // }
     }
     return (
         <div className='inventory-container'>
