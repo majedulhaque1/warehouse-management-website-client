@@ -23,6 +23,7 @@ const Header = () => {
                             <Nav.Link href="#items"><Link className='text-warning text-decoration-none' to={'/useradditem'}>Add Items</Link></Nav.Link>
                             <Nav.Link href="#items"><Link className='text-warning text-decoration-none' to={'/manageitems'}>Manage Items</Link></Nav.Link>
                             <Nav.Link href="#items"><Link className='text-warning text-decoration-none' to={'/manageinventories'}>Manage Invenories</Link></Nav.Link>
+                            <Nav.Link href="#items"><Link className='text-warning text-decoration-none' to={'/blogs'}>Blogs</Link></Nav.Link>
                             {!user ? <Nav.Link href="#login"><Link className='text-warning text-decoration-none' to={'/login'}>Login</Link></Nav.Link>: ''}
                             {user ? 
                             <Nav.Link href="#pricing"><button onClick={() => signOut(auth)} className='btn btn-warning text-white'>Sign Out</button></Nav.Link>

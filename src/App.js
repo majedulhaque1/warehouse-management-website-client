@@ -17,6 +17,8 @@ import Footer from './Pages/Footer/Footer';
 import Home from './Pages/Home/Home/Home';
 import Loading from './Pages/Loading/Loading';
 import { ToastContainer } from 'react-toastify';
+import Blogs from './Pages/Blogs/Blogs';
+import NotFound from './Pages/NotFound/NotFound';
 
 function App() {
   return (
@@ -34,12 +36,14 @@ function App() {
         <Route path='/useradditem' element={<AddItem></AddItem>}></Route>
         <Route path='/manageitems' element={<ManageItems></ManageItems>}></Route>
         <Route path='/manageinventories' element={<ManageInventories></ManageInventories>}></Route>
+        <Route path='/blogs' element={<Blogs></Blogs>}></Route>
         <Route path='/inventory/:itemId' element={
           <RequireAuth>
             <Inventory></Inventory>
           </RequireAuth>
         }></Route>
         <Route path='/manage-inventory' element={<ManageInventories></ManageInventories>}></Route>
+        <Route path='*' element={<NotFound></NotFound>}></Route>
       </Routes>
       {/* <Loading></Loading> */}
       <Footer></Footer>
