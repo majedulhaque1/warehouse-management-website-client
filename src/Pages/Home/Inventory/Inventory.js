@@ -18,10 +18,10 @@ const Inventory = () => {
             setUpdateQuantity(0);
         }
     },[quantity, updateQuantity])
-    // console.log(quantity)
+
     useEffect(() =>{
-        const url = `http://localhost:5000/additem/${itemId}`;
-        // console.log(url);
+        const url = `https://quiet-brushlands-43785.herokuapp.com/additem/${itemId}`;
+
         fetch(url)
         .then(res => res.json())
         .then(data => setProduct(data))
@@ -33,14 +33,11 @@ const Inventory = () => {
         if(updateQuantity === null || updateQuantity === isNaN) {
             setUpdateQuantity(itemQuantity);
         }
-        // if(itemQuantity === null || itemQuantity === ''){
-        //     itemQuantity = 0;
-        // }
         const quantityValue = e.target.quantityValue.value;
         const quantity = parseInt(quantityValue) + parseInt(updateQuantity);
         setUpdateQuantity(quantity);
         console.log(quantity);
-        const url = `http://localhost:5000/additem/${itemId}`;
+        const url = `https://quiet-brushlands-43785.herokuapp.com/additem/${itemId}`;
         fetch(url,{
             method: "PUT",
             headers:{
@@ -50,7 +47,6 @@ const Inventory = () => {
         })
         .then(res => res.json())
         .then(data => {
-            // setUpdateQuantity(quantity);
             setProducts(data);
             e.target.reset();
         })
@@ -64,12 +60,10 @@ const Inventory = () => {
             itemQuantity = 0;
             setUpdateQuantity(0);
         }
-        // else{
-            // console.log(updateQuantity)
         const quantity = parseInt(updateQuantity) - 1;
         setUpdateQuantity(quantity);
         console.log(quantity);
-        const url = `http://localhost:5000/additem/${itemId}`;
+        const url = `https://quiet-brushlands-43785.herokuapp.com/additem/${itemId}`;
         fetch(url,{
             method: "PUT",
             headers:{
@@ -79,10 +73,8 @@ const Inventory = () => {
         })
         .then(res => res.json())
         .then(data => {
-            // setUpdateQuantity(quantity);
             setProducts(data);
         })
-    // }
     }
     return (
         <div className='inventory-container'>
@@ -97,7 +89,6 @@ const Inventory = () => {
                     <h2 className='text-warning'>{name}</h2>
                     <p>Description: {description}</p>
                     <h4>Price: <small>{price}</small></h4>
-                    <h4>Quantity: <small>{!updateQuantity ? quantity : updateQuantity}</small></h4>
                     <h4>Quantity: <small>{updateQuantity}</small></h4>
                     <h4>Suplier Name: <small>Suplier Name</small></h4>
                     <button onClick={handleDelevered} className='btn btn-warning text-white d-block ms-auto me-4'>Delevered</button>

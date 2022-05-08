@@ -1,12 +1,22 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Table } from 'react-bootstrap';
-import useProducts from '../../hooks/useProducts';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import auth from '../../firebase.init';
 
 const MyItems = () => {
-    const [products, setProducts] = useProducts();
+    const [user] = useAuthState(auth);
+    const [products, setProducts] = useState([]);
+    useEffect(() =>{
+        fetch('https://quiet-brushlands-43785.herokuapp.com/additem')
+        .then(res => res.json())
+        .then(data =>{
+            const userAddProduct = data.filter(p => p.email === user?.email);
+            setProducts(userAddProduct);
+        })
+    },[user?.email])
     return (
         <div className='w-75 mx-auto'>
-            <h2 className='text-center text-primary'>Your Items</h2>
+            <h2 className='text-center text-warning my-5'>Your Items</h2>
             <Table striped bordered hover>
                 <thead>
                     <tr className='my-5'>
@@ -26,10 +36,10 @@ const MyItems = () => {
                                 <td>{product._id}</td>
                                 <td><img style={{width: "100px", height: "60px"}} src={product.img} alt="" /></td>
                                 <td>{product.name}</td>
+                                <td>{product.email}</td>
                                 <td>{product.price}</td>
                                 <td>{product.quantity}</td>
-                                <td>@mdo</td>
-                                <td>@mdo</td>
+                                <td>{product.supliername}</td>
                             </tr>
                         )
                     }

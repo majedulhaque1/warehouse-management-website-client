@@ -2,9 +2,11 @@ import React from 'react';
 import useProducts from '../../hooks/useProducts';
 import './ManageInventories.css';
 import { Table } from 'react-bootstrap';
+import { Navigate, useNavigate } from 'react-router-dom';
 
 const ManageInventories = () => {
     const [products, setProducts] = useProducts();
+    const navigate = useNavigate();
     const handleAddItem = (e) => {
         e.preventDefault();
         const name = e.target.name.value;
@@ -16,7 +18,7 @@ const ManageInventories = () => {
 
 
         
-        fetch('http://localhost:5000/additem', {
+        fetch('https://quiet-brushlands-43785.herokuapp.com/additem', {
             method: "POST",
             headers: {
                 'content-type': 'application/json'
@@ -30,10 +32,14 @@ const ManageInventories = () => {
             })
     }
 
+    const handleUpdateStock = (id) =>{
+        navigate(`/inventory/${id}`);
+    }
+
     const handleDelete = (id) =>{
         const procced = window.confirm('Are you sure you want to delete?');
         if(procced){
-        fetch(`http://localhost:5000/additem/${id}`, {
+        fetch(`https://quiet-brushlands-43785.herokuapp.com/additem/${id}`, {
             method: "DELETE"
         })
         .then(res => res.json())
@@ -44,7 +50,7 @@ const ManageInventories = () => {
     }
     return (
         <div className='manage-container'>
-            <h2 className='text-center text-primary my-5'>Manage Inventories</h2>
+            <h2 className='text-center text-warning my-5'>Manage Inventories</h2>
             <div className='manage-form-container d-block mx-auto'>
 
                 <form className='manage-form d-flex justify-content-between shadow-lg' onSubmit={handleAddItem} action="">
@@ -63,7 +69,7 @@ const ManageInventories = () => {
                         <br />
                         <textarea name="description" id="" cols="30" rows="2" required></textarea>
                         <br />
-                        <input type="submit" value="Add Item" />
+                        <input className='btn btn-warning text-white' type="submit" value="Add Item" />
                     </div>
                 </form>
             </div>
@@ -78,6 +84,8 @@ const ManageInventories = () => {
                             <th>Price</th>
                             <th>Quantity</th>
                             <th>Suplier Name</th>
+                            <th>Update Stock</th>
+                            <th>Delete Product</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -87,8 +95,11 @@ const ManageInventories = () => {
                                     <td>{product._id}</td>
                                     <td><img style={{ width: "100px", height: "60px" }} src={product.img} alt="" /></td>
                                     <td>{product.name}</td>
+                                    <td>{product.email}</td>
                                     <td>{product.price}</td>
                                     <td>{product.quantity}</td>
+                                    <td>{product.supliername}</td>
+                                    <td><button onClick={() => handleUpdateStock(product._id)} className='btn btn-success'>Update stock</button></td>
                                     <td><button onClick={() => handleDelete(product._id)} className='btn btn-danger'>Delete</button></td>
                                 </tr>
                             )

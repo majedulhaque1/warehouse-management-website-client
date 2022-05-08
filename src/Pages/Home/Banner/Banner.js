@@ -9,14 +9,13 @@ const Banner = () => {
             <Carousel style={{ backgroundSize: 'cover',height: '90vh'}}>
                 <Carousel.Item className='banner-img-style'>
                     <img
-                        style={{width: '100%',height: '100vh'}}
+                        style={{width: '100%',height: '90vh'}}
                         className=""
                         src={imageSlide2}
                         alt="First slide"
                     />
                     <Carousel.Caption>
-                        <h3>Amazing car we have</h3>
-                        <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+                        <h3 className='fs-1 mb-5'>Advance features and technology.</h3>
                     </Carousel.Caption>
                 </Carousel.Item>
                 <Carousel.Item>
@@ -28,8 +27,7 @@ const Banner = () => {
                     />
 
                     <Carousel.Caption>
-                        <h3>Awesome Cars</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                        <h3 className='fs-1 mb-5'>Better Performance And environment friendly</h3>
                     </Carousel.Caption>
                 </Carousel.Item>
                 <Carousel.Item>
@@ -41,8 +39,7 @@ const Banner = () => {
                     />
 
                     <Carousel.Caption>
-                        <h3>Very good looking cars.</h3>
-                        <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+                        <h3 className='fs-1 mb-5'>Low mantanence and good choice</h3>
                     </Carousel.Caption>
                 </Carousel.Item>
             </Carousel>

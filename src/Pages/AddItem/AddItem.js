@@ -16,7 +16,7 @@ const AddItem = () => {
 
         const item = {name, email, img, price, quantity, description};
 
-        fetch('http://localhost:5000/additem',{
+        fetch('https://quiet-brushlands-43785.herokuapp.com/additem',{
             method: "POST",
             headers: {
                 'content-type' : 'application/json',
@@ -24,7 +24,10 @@ const AddItem = () => {
             body: JSON.stringify(item)
         })
         .then(res => res.json())
-        .then(data => console.log(data))
+        .then(data => {
+            console.log(data);
+            e.target.reset();
+        })
     }
     return (
         <div className='additem-container'>

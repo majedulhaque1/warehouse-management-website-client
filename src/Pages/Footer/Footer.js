@@ -26,10 +26,10 @@ const Footer = () => {
                 <div>
                     <h2 className='text-warning my-4'>Menu Items</h2>
                     <NavLink><Link to={'/'}>Home</Link></NavLink>
-                    <NavLink><Link to={'/'}>Home</Link></NavLink>
-                    <NavLink><Link to={'/'}>Home</Link></NavLink>
-                    <NavLink><Link to={'/'}>Home</Link></NavLink>
-                    <NavLink><Link to={'/'}>Home</Link></NavLink>
+                    <NavLink><Link to={'/'}>Items</Link></NavLink>
+                    <NavLink><Link to={'/'}>Invenory</Link></NavLink>
+                    <NavLink><Link to={'/'}>Manage Invenories</Link></NavLink>
+                    <NavLink><Link to={'/'}>Blogs</Link></NavLink>
                 </div>
                 <div className='newsletter'>
                     <h2 className='text-warning my-4'>Newsletter</h2>

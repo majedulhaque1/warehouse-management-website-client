@@ -9,39 +9,21 @@ const WhyChooseUs = () => {
             </div>
             <div className='whychoose-container'>
             <div className='why-choose-item'>
-                <h2 className='py-5 fs-3'>Finachcial Made Easy</h2>
+                <h2 className='py-5 fs-3'>Car Service And Maintance</h2>
                 <p>
-                    this is description
-                    this is description
-                    this is description
-                    this is description
-                    this is description
-                    this is description
-                    this is description
+                    We provide better car service and maintainence for you.We ensure good service for your car.
                 </p>
             </div>
             <div className='why-choose-item'>
                 <h2 className='py-5 fs-3'>Wide Range of brands</h2>
                 <p>
-                    this is description
-                    this is description
-                    this is description
-                    this is description
-                    this is description
-                    this is description
-                    this is description
+                    We have multiple brand choice for you.Like BMW, Mercedes, audi.You can choice good car.
                 </p>
             </div>
             <div className='why-choose-item'>
                 <h2 className='py-5 fs-3'>Trusted</h2>
                 <p>
-                    this is description
-                    this is description
-                    this is description
-                    this is description
-                    this is description
-                    this is description
-                    this is description
+                    We are trused. you can buy car without any hassle.Our community is good and they are trust us.
                 </p>
             </div>
             </div>
